@@ -18,13 +18,11 @@ max_tries = 5
 ws.append(['NAZWA','KURS','ZMIANA','WYNIK'])
 while tries < max_tries:
     shortcut = (random_char(3))
-    # url = f'https://stooq.pl/q/?s={shortcut}'
-    url = 'https://stooq.pl/q/?s=cdr'
+    url = f'https://stooq.pl/q/?s={shortcut}'
     page = requests.get(url)
     soup = BeautifulSoup(page.text, 'html.parser')
 
     table = soup.find('tbody', style='background-color:ffffff')
-
 
     if table != None:
         print(str(tries+1)+'/5')
